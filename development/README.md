@@ -26,6 +26,14 @@ Subsequently, retain `numpy`, `pandas`, and `yaml` within the second part of `re
     pylint --generate-rcfile > .pylintrc
 ```
 
+Use the command
+
+```shell
+  conda list {regex}
+```
+
+to search for the details of a particular package.
+
 <br>
 <br>
 
