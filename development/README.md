@@ -9,8 +9,9 @@ This repository's virtual environment is created via
     conda create --prefix .../uncertainty
     conda activate uncertainty
     
-    # Python
-    conda install -c anaconda pymc==3.11.4    
+    # Packages
+    conda install -c anaconda pymc==3.11.4
+    conda install -c anaconda pytest coverage pylint pytest-cov flake8
 ```
 
 The [filter.txt](/docs/filter.txt) document lists the core libraries of [requirements.txt](/requirements.txt).  Thus
