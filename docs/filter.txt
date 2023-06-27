@@ -1,4 +1,6 @@
-pymc3
+pymc
+numpyro
+blackjax
 arviz
 pytest
 coverage
