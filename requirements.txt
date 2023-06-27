@@ -1,0 +1,14 @@
+pymc==5.5.0
+numpyro==0.12.1
+blackjax==0.9.6
+arviz==0.15.1
+pytest==7.4.0
+coverage==7.2.7
+pytest-cov==4.1.0
+pylint==2.17.4
+flake8==6.0.0
+## The following requirements were added by pip freeze:
+numpy==1.25.0
+pandas==2.0.2
+requests==2.31.0
+scipy==1.11.0
