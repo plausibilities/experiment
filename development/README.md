@@ -9,9 +9,13 @@ This repository's virtual environment is created via
     conda create --prefix .../uncertainty
     conda activate uncertainty
     
-    # Packages
-    conda install -c anaconda pymc==3.11.4
-    conda install -c anaconda pytest coverage pylint pytest-cov flake8
+    # Mathematics Packages
+    conda install -c conda-forge pymc
+    pip install numpyro
+    pip install blackjax
+    
+    # Tests & Evaluations Packages
+    conda install -c conda-forge pytest coverage pylint pytest-cov flake8
 ```
 
 The [filter.txt](/docs/filter.txt) document lists the core libraries of [requirements.txt](/requirements.txt).  Thus
@@ -20,7 +24,7 @@ The [filter.txt](/docs/filter.txt) document lists the core libraries of [require
     pip freeze -r docs/filter.txt > requirements.txt
 ```
 
-Subsequently, retain `numpy`, `pandas`, and `yaml` within the second part of `requirements.txt`.  To generate the dotfile that [`pylint`](https://pylint.pycqa.org/en/latest/user_guide/checkers/features.html) - the static code analyser - will use for analysis, run
+Subsequently, retain `numpy` and `pandas` within the second part of `requirements.txt`.  To generate the dotfile that [`pylint`](https://pylint.pycqa.org/en/latest/user_guide/checkers/features.html) - the static code analyser - will use for analysis, run
 
 ```shell
     pylint --generate-rcfile > .pylintrc
