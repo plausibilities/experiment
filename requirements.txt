@@ -1,7 +1,14 @@
-pymc3==3.11.4
-arviz==0.11.2
-pytest==7.1.2
-coverage==6.3.2
-pytest-cov==3.0.0
-pylint==2.14.5
-flake8==6.0.0
+pymc @ file:///home/conda/feedstock_root/build_artifacts/pymc-suite_1686330289716/work
+numpyro==0.12.1
+blackjax==0.9.6
+arviz @ file:///home/conda/feedstock_root/build_artifacts/arviz_1678789125032/work
+pytest @ file:///home/conda/feedstock_root/build_artifacts/pytest_1687692146518/work
+coverage @ file:///D:/bld/coverage_1685399930966/work
+pytest-cov @ file:///home/conda/feedstock_root/build_artifacts/pytest-cov_1684964868191/work
+pylint @ file:///home/conda/feedstock_root/build_artifacts/pylint_1683397482155/work
+flake8 @ file:///home/conda/feedstock_root/build_artifacts/flake8_1669396691980/work
+## The following requirements were added by pip freeze:
+numpy @ file:///D:/bld/numpy_1687056486791/work
+pandas @ file:///D:/bld/pandas_1685343270704/work
+requests @ file:///home/conda/feedstock_root/build_artifacts/requests_1684774241324/work
+scipy==1.11.0
