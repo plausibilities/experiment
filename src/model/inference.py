@@ -8,7 +8,8 @@ class Inference:
 
         """
 
-    def exc(self, data) -> pymc.Model:
+    @staticmethod
+    def exc(data) -> pymc.Model:
 
         with pymc.Model() as model:
 
