@@ -1,3 +1,5 @@
+import collections
+
 
 class Config:
 
@@ -7,3 +9,6 @@ class Config:
         """
 
         self.random_seed = 5
+
+        self.DataCollection = collections.namedtuple(
+            typename='DataCollection', field_names=['abscissae', 'ordinates', 'independent', 'dependent'])
