@@ -1,4 +1,6 @@
 import pymc
+import logging
+import config
 
 
 class Inference:
@@ -8,8 +10,12 @@ class Inference:
 
         """
 
-    @staticmethod
-    def exc(data) -> pymc.Model:
+        logging.basicConfig(level=logging.INFO,
+                            format='\n\n%(message)s\n%(asctime)s.%(msecs)03d',
+                            datefmt='%Y-%m-%d %H:%M:%S')
+        self.__logger = logging.getLogger(__name__)
+
+    def exc(self, data: config.Config().DataCollection) -> pymc.Model:
 
         with pymc.Model() as model:
 
@@ -23,9 +29,11 @@ class Inference:
             gradient = pymc.Normal(name='gradient', mu=0, sigma=20)
 
             # Hypothesis
+            # noinspection PyUnresolvedReferences
             regression = pymc.Deterministic('regression', intercept + gradient * data.independent)
 
             # Define likelihood
             likelihood = pymc.Normal(name='y', mu=regression, sigma=sigma, observed=data.dependent)
+            self.__logger.info(likelihood)
 
         return model
