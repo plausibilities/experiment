@@ -5,6 +5,8 @@ import logging
 import os
 import sys
 
+import pymc
+
 
 def main():
     """
@@ -12,7 +14,10 @@ def main():
     :return: None
     """
 
-    logger.info('infections')
+    logger.info('experiment')
+
+    data: config.Config().DataCollection = src.data.points.Points().exc()
+    model: pymc.Model = src.model.inference.Inference().exc(data=data)
 
 
 if __name__ == '__main__':
@@ -27,4 +32,10 @@ if __name__ == '__main__':
                         format='\n\n%(message)s\n%(asctime)s.%(msecs)03d',
                         datefmt='%Y-%m-%d %H:%M:%S')
     logger = logging.getLogger(__name__)
+
+    # Classes
+    import config
+    import src.data.points
+    import src.model.inference
+
     main()
