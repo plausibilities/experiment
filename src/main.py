@@ -7,6 +7,7 @@ import sys
 import collections
 import time
 import pymc
+import jax
 
 
 def main():
@@ -16,6 +17,8 @@ def main():
     """
 
     logger.info('experiment')
+    logger.info(jax.default_backend())
+    logger.info(jax.devices())
 
     # Sample data
     data: config.Config().DataCollection = src.data.points.Points().exc()
@@ -27,11 +30,11 @@ def main():
     inference = src.model.inference.Inference(model=model)
 
     # Estimating the model's parameters via different sampling methods
-    for option in options:
-        logger.info('%s ...', option.sampler)
+    for sampler, method in zip(samplers, methods):
+        logger.info('%s ...', sampler)
         starts = time.time()
-        inference.exc(sampler=option.sampler, chain_method=option.chain_method)
-        logger.info('%s: %s', (option.sampler, time.time() - starts))
+        inference.exc(sampler=sampler, method=method)
+        logger.info('%s: %s', (sampler, time.time() - starts))
 
 
 if __name__ == '__main__':
@@ -54,12 +57,7 @@ if __name__ == '__main__':
     import src.model.inference
 
     # The inference options
-    Case = collections.namedtuple(typename='Case', field_names=['sampler', 'chain_method'])
-    cases = [{'sampler': 'simple', 'chain_method': ''},
-             {'sampler': 'numpyro', 'chain_method': 'vectorized'},
-             {'sampler': 'blackjax', 'chain_method': 'vectorized'},
-             {'sampler': 'numpyro', 'chain_method': 'parallel'},
-             {'sampler': 'blackjax', 'chain_method': 'parallel'}]
-    options = [Case(**case) for case in cases]
+    samplers = ['numpyro', 'blackjax', 'numpyro', 'blackjax']
+    methods = ['vectorized', 'vectorized', 'parallel','parallel']
 
     main()

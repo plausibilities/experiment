@@ -22,7 +22,7 @@ class Inference:
                             datefmt='%Y-%m-%d %H:%M:%S')
         self.__logger = logging.getLogger(__name__)
 
-    def exc(self, sampler: str, chain_method: str = 'parallel') -> arviz.InferenceData:
+    def exc(self, sampler: str, method: str = 'parallel') -> arviz.InferenceData:
         """
         The chain method refers to the sample drawing method.  In the case of NumPyro the options are parallel,
         sequential, and vectorized.  Whereas, it is parallel or vectorized in the case of BlackJAX
@@ -31,12 +31,12 @@ class Inference:
         * numpyro: https://www.pymc.io/projects/docs/en/stable/api/generated/pymc.sampling.jax.sample_numpyro_nuts.html
 
         :param sampler:
-        :param chain_method:
+        :param method:
         :return:
         """
 
         return {
             'simple': src.model.sampling.simple.Simple().exc(model=self.__model),
-            'numpyro': src.model.sampling.numpyro.NumPyro().exc(model=self.__model, chain_method=chain_method),
-            'blackjax': src.model.sampling.blackjax.BlackJAX().exc(model=self.__model, chain_method=chain_method)
+            'numpyro': src.model.sampling.numpyro.NumPyro().exc(model=self.__model, method=method),
+            'blackjax': src.model.sampling.blackjax.BlackJAX().exc(model=self.__model, method=method)
         }.get(sampler, LookupError(f'{sampler} is not a known sampler.'))

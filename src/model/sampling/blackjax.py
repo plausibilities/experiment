@@ -15,24 +15,26 @@ class BlackJAX:
         """
 
         # Use GPU (Graphics Processing Unit) 1; the NVIDIA unit.
-        os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+        os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
         # Configurations
         configurations = config.Config()
         self.random_seed = configurations.random_seed
 
-    def exc(self, model: pymc.model.Model, chain_method: str) -> arviz.InferenceData:
+    def exc(self, model: pymc.model.Model, method: str) -> arviz.InferenceData:
         """
 
         :param model:
-        :param chain_method:
+        :param method:
         :return:
         """
+
+        print(method)
 
         with model:
 
             trace = pymc.sampling_jax.sample_blackjax_nuts(
                 draws=2000, tune=1000, chains=4, target_accept=0.9,
-                random_seed=self.random_seed, chain_method=chain_method)
+                random_seed=self.random_seed, chain_method=method)
 
         return trace
