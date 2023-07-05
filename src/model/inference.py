@@ -37,6 +37,6 @@ class Inference:
 
         return {
             'simple': src.model.sampling.simple.Simple().exc(model=self.__model),
-            'numpyro': src.model.sampling.numpyro.NumPyro().exc(model=self.__model, chain_method=chain_method),
-            'blackjax': src.model.sampling.blackjax.BlackJAX().exc(model=self.__model, chain_method=chain_method)
+            'numpyro': src.model.sampling.numpyro.NumPyro().exc(model=self.__model, method=chain_method),
+            'blackjax': src.model.sampling.blackjax.BlackJAX().exc(model=self.__model, method=chain_method)
         }.get(sampler, LookupError(f'{sampler} is not a known sampler.'))
