@@ -4,10 +4,10 @@ The main module for running other classes
 import logging
 import os
 import sys
-import collections
 import time
-import pymc
+
 import jax
+import pymc
 
 
 def main():
@@ -16,6 +16,7 @@ def main():
     :return: None
     """
 
+    # Notes
     logger.info('experiment')
     logger.info(jax.default_backend())
     logger.info(jax.devices())
@@ -33,8 +34,9 @@ def main():
     for sampler, method in zip(samplers, methods):
         logger.info('%s ...', sampler)
         starts = time.time()
-        inference.exc(sampler=sampler, method=method)
-        logger.info('%s: %s', (sampler, time.time() - starts))
+        tablet = inference.exc(sampler=sampler, method=method)
+        logger.info(tablet)
+        logger.info(f'{sampler}: {time.time() - starts}')
 
 
 if __name__ == '__main__':
@@ -58,6 +60,6 @@ if __name__ == '__main__':
 
     # The inference options
     samplers = ['numpyro', 'blackjax', 'numpyro', 'blackjax']
-    methods = ['vectorized', 'vectorized', 'parallel','parallel']
+    methods = ['vectorized', 'vectorized', 'parallel', 'parallel']
 
     main()
