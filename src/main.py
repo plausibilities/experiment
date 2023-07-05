@@ -7,6 +7,7 @@ import sys
 import collections
 import time
 import pymc
+import jax
 
 
 def main():
@@ -16,6 +17,8 @@ def main():
     """
 
     logger.info('experiment')
+    logger.info(jax.default_backend())
+    logger.info(jax.devices())
 
     # Sample data
     data: config.Config().DataCollection = src.data.points.Points().exc()
@@ -29,6 +32,7 @@ def main():
     # Estimating the model's parameters via different sampling methods
     for option in options:
         logger.info('%s ...', option.sampler)
+        print(option.chain_method)
         starts = time.time()
         inference.exc(sampler=option.sampler, chain_method=option.chain_method)
         logger.info('%s: %s', (option.sampler, time.time() - starts))
