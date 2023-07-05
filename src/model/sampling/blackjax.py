@@ -15,7 +15,7 @@ class BlackJAX:
         """
 
         # Use GPU (Graphics Processing Unit) 1; the NVIDIA unit.
-        os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+        os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 
         # Configurations
         configurations = config.Config()
