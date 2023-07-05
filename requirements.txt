@@ -1,4 +1,5 @@
 pymc==5.5.0
+jax==0.4.13
 numpyro==0.12.1
 blackjax==0.9.6
 arviz==0.15.1
@@ -10,5 +11,6 @@ flake8==6.0.0
 ## The following requirements were added by pip freeze:
 numpy==1.25.0
 pandas==2.0.2
+jaxlib==0.4.13
 requests==2.31.0
 scipy==1.11.0
