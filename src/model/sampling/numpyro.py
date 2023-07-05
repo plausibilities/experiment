@@ -15,7 +15,7 @@ class NumPyro:
         """
 
         # Use GPU (Graphics Processing Unit) 1; the NVIDIA unit.
-        os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+        os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
         # Configurations
         configurations = config.Config()
@@ -31,7 +31,7 @@ class NumPyro:
 
         with model:
             trace = pymc.sampling_jax.sample_numpyro_nuts(
-                draws=4000, tune=2000, chains=4, target_accept=0.9,
+                draws=2000, tune=1000, chains=4, target_accept=0.9,
                 random_seed=self.random_seed, chain_method=chain_method)
 
         return trace
