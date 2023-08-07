@@ -23,7 +23,9 @@ def main():
 
     # Sample data
     data: config.Config().DataCollection = src.data.points.Points().exc()
+    logger.info(type(data))
 
+    """    
     # The suggested model
     model: pymc.Model = src.model.algorithm.Algorithm().exc(data=data)
 
@@ -37,6 +39,9 @@ def main():
         tablet = inference.exc(sampler=sampler, method=method)
         logger.info(tablet)
         logger.info(f'{sampler}: {time.time() - starts}')
+    """
+
+    
 
 
 if __name__ == '__main__':
