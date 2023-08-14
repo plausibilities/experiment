@@ -5,20 +5,10 @@
 This repository's virtual environment is created via
 
 ```shell
-    # Environment
-    conda create --prefix .../uncertainty
-    conda activate uncertainty
-    
-    # Mathematics Packages
-    conda install -c conda-forge pymc
-    pip install numpyro
-    pip install blackjax
-    
-    # Tests & Evaluations Packages
-    conda install -c conda-forge pytest coverage pylint pytest-cov flake8
+    conda env create -f environment.yml -p /opt/miniconda3/envs/uncertainty
 ```
 
-The [filter.txt](/docs/filter.txt) document lists the core libraries of [requirements.txt](/requirements.txt).  Thus
+The [filter.txt](/docs/filter.txt) document lists the core libraries for [requirements.txt](/requirements.txt).  Thus
 
 ```shell
     pip freeze -r docs/filter.txt > requirements.txt
@@ -36,7 +26,14 @@ Use the command
   conda list {regex}
 ```
 
-to search for the details of a particular package.
+to search for the details of a particular package.  Add
+
+>  JAX_PLATFORM_NAME=GPU
+
+to `/etc/environment`; subsequently, `source /etc/environment`.
+
+
+
 
 <br>
 <br>
