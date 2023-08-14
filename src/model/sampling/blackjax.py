@@ -6,6 +6,7 @@ import os
 import arviz
 import pymc
 import pymc.sampling_jax
+import jax
 
 import config
 
@@ -32,12 +33,15 @@ class BlackJAX:
         :return:
         """
 
-        print(f'blackjax: {method}')
+        if method == 'parallel':
+            chains = jax.device_count(backend='gpu')
+        else:
+            chains = 8
 
         with model:
             # Inference
             trace = pymc.sampling_jax.sample_blackjax_nuts(
-                draws=2000, tune=1000, chains=1, target_accept=0.9,
+                draws=2000, tune=1000, chains=chains, target_accept=0.9,
                 random_seed=self.random_seed, chain_method=method)
 
         return trace
