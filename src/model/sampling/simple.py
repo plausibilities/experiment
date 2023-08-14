@@ -1,3 +1,6 @@
+"""
+simple.py
+"""
 import arviz
 import pymc
 import pymc.sampling_jax
@@ -9,7 +12,7 @@ class Simple:
 
     def __init__(self):
         """
-
+        Constructor
         """
 
         # Configurations
