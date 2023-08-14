@@ -1,9 +1,10 @@
 pymc>=5.7.*
-jax>=0.4.13
+--find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+"jax[cuda12_pip]"
 jaxlib
-numpyro>=0.12.1
-blackjax>=0.9.6
-arviz>=0.15.*
+numpyro
+blackjax
+arviz
 numpy>=1.25.*
 pandas>=2.0.*
 scipy>=1.11.*
