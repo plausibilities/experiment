@@ -18,8 +18,8 @@ class NumPyro:
         Constructor
         """
 
-        # Use GPU (Graphics Processing Unit) 1; the NVIDIA unit.
-        os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+        # Use a GPU (Graphics Processing Unit); the NVIDIA unit.
+        os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
         # Configurations
         configurations = config.Config()
@@ -36,7 +36,7 @@ class NumPyro:
         if method == 'parallel':
             chains = jax.device_count(backend='gpu')
         else:
-            chains = 8
+            chains = 4
 
         with model:
             # Inference
