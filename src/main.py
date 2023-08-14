@@ -20,6 +20,7 @@ def main():
     logger.info('JAX')
     jax.config.update('jax_platform_name', 'gpu')
     logger.info(jax.devices(backend='gpu'))
+    logger.info(f"The number of GPU devices: {jax.device_count(backend='gpu')}")
     
     # Sample data
     data: config.Config().DataCollection = src.data.points.Points().exc()
@@ -64,6 +65,6 @@ if __name__ == '__main__':
 
     # The inference options
     samplers = ['numpyro', 'blackjax', 'numpyro', 'blackjax']
-    methods = ['vectorized', 'vectorized', 'parallel', 'parallel']
+    methods = ['parallel', 'parallel', 'vectorized', 'vectorized']
 
     main()
