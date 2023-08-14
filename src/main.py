@@ -17,7 +17,7 @@ def main():
     """
 
     # Notes
-    logger.info('experiment')
+    logger.info('JAX')
     logger.info(jax.default_backend())
     logger.info(jax.devices())
 
@@ -50,6 +50,8 @@ if __name__ == '__main__':
     root = os.getcwd()
     sys.path.append(root)
     sys.path.append(os.path.join(root, 'src'))
+
+    os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
     # Logging
     logging.basicConfig(level=logging.INFO,
