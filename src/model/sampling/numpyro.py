@@ -1,3 +1,6 @@
+"""
+numpyro.py
+"""
 import os
 
 import arviz
@@ -11,11 +14,11 @@ class NumPyro:
 
     def __init__(self):
         """
-
+        Constructor
         """
 
         # Use GPU (Graphics Processing Unit) 1; the NVIDIA unit.
-        os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+        # os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 
         # Configurations
         configurations = config.Config()
