@@ -18,9 +18,9 @@ def main():
 
     # Notes
     logger.info('JAX')
-    logger.info(jax.default_backend())
-    logger.info(jax.devices())
-
+    jax.config.update('jax_platform_name', 'gpu')
+    logger.info(jax.devices(backend='gpu'))
+    
     # Sample data
     data: config.Config().DataCollection = src.data.points.Points().exc()
     logger.info(type(data))
