@@ -26,14 +26,19 @@ Use the command
   conda list {regex}
 ```
 
-to search for the details of a particular package.  Add
+to search for the details of a particular package.  
+
+
+<br>
+<br>
+
+### JAX
+
+Adding
 
 >  JAX_PLATFORM_NAME=GPU
 
-to `/etc/environment`; subsequently, `source /etc/environment`.
-
-
-
+to `/etc/profile` might address the verbose device info; `JAX_PLATFORM_NAME` is being deprecated in favour of `JAX_PLATFORMS`, in progress.
 
 <br>
 <br>
