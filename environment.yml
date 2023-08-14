@@ -8,8 +8,10 @@ dependencies:
   - pip:
     - --find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
     - "jax[cuda12_pip]" 
+    - jaxlib
     - numpyro
-    - blackjax  
+    - blackjax 
+  - arviz 
   - dask
   - scikit-learn
   - numpy>=1.25.*
