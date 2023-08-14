@@ -5,11 +5,14 @@ jaxlib
 numpyro
 blackjax
 arviz
+"dask[complete]"
+scikit-learn
 numpy>=1.25.*
 pandas>=2.0.*
 scipy>=1.11.*
 jupyterlab>=4.0.*
 seaborn
+pyyaml
 requests>=2.31.*
 pytest>=7.4.*
 coverage>=7.2.7
