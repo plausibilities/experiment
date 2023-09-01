@@ -54,6 +54,8 @@ def main():
         logger.info(tablet)
         logger.info(f'{sampler}: {time.time() - starts}')
 
+    # Delete __pycache__ directories
+    __extraneous()
 
 if __name__ == '__main__':
 
