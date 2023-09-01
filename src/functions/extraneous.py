@@ -27,7 +27,7 @@ class Extraneous:
         for path in pathlib.Path.cwd().rglob('__pycache__'):
             if path.is_dir():
                 try:
-                    shutil.rmtree(path)
+                    shutil.rmtree(path=path, ignore_errors=True)
                 except PermissionError:
                     raise Exception(f'Delete Permission Denied: {path}')
                 else:
