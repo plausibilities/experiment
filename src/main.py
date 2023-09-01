@@ -28,13 +28,9 @@ def main():
     # The inference instance
     inference = src.model.inference.Inference(model=model)
 
-    # Estimating the model's parameters via different sampling methods
-    for sampler, method in zip(samplers, methods):
-        logger.info('%s ...', sampler)
-        starts = time.time()
-        tablet = inference.exc(sampler=sampler, method=method)
-        logger.info(tablet)
-        logger.info(f'{sampler}: {time.time() - starts}')
+    # Estimating the model's parameters
+    objects = inference.exc(sampler='blackjax', method='vectorized')
+    logger.info(objects)
 
     # Delete __pycache__ directories
     src.functions.extraneous.Extraneous().exc()
@@ -60,9 +56,5 @@ if __name__ == '__main__':
     import src.functions.extraneous
     import src.model.algorithm
     import src.model.inference
-
-    # The inference options
-    samplers = ['numpyro', 'numpyro', 'blackjax']
-    methods = ['parallel', 'vectorized', 'vectorized']
 
     main()
