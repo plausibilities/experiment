@@ -28,12 +28,15 @@ def main():
     inference = src.model.inference.Inference(model=model)
 
     # Estimating the model's parameters via different sampling methods
+    computations = []
     for sampler, method in zip(samplers, methods):
-        logger.info('%s ...', sampler)
+        
         starts = time.time()
-        tablet = inference.exc(sampler=sampler, method=method)
-        logger.info(tablet)
-        logger.info(f'{sampler}: {time.time() - starts}')
+        objects = inference.exc(sampler=sampler, method=method)
+        logger.info(objects)
+        computations.append({'sampler': sampler, 'method': method, 'seconds': {time.time() - starts}})
+
+    logger.info(computations)
 
     # Delete __pycache__ directories
     src.functions.extraneous.Extraneous().exc()
