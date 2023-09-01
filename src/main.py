@@ -59,7 +59,7 @@ if __name__ == '__main__':
     import src.model.inference
 
     # The inference options
-    samplers = ['numpyro', 'blackjax', 'numpyro', 'blackjax']
-    methods = ['parallel', 'parallel', 'vectorized', 'vectorized']
+    samplers = ['numpyro', 'numpyro', 'blackjax']
+    methods = ['parallel', 'vectorized', 'vectorized']
 
     main()
