@@ -4,9 +4,9 @@ blackjax.py
 import os
 
 import arviz
+import jax
 import pymc
 import pymc.sampling_jax
-import jax
 
 import config
 
