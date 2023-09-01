@@ -1,3 +1,6 @@
+"""
+simple.py
+"""
 import arviz
 import pymc
 import pymc.sampling_jax
@@ -9,7 +12,7 @@ class Simple:
 
     def __init__(self):
         """
-
+        Constructor
         """
 
         # Configurations
@@ -24,9 +27,8 @@ class Simple:
         """
 
         with model:
-
             # Inference
-            # draw 4000 posterior samples using NUTS sampling
+            # Drawing samples using NUTS sampling
             trace = pymc.sample(draws=2000, tune=1000, chains=4, target_accept=0.9,
                                 random_seed=self.random_seed, nuts_sampler='pymc')
 

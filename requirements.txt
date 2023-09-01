@@ -1,16 +1,21 @@
-pymc==5.5.0
-jax==0.4.13
-numpyro==0.12.1
-blackjax==0.9.6
-arviz==0.15.1
-pytest==7.4.0
-coverage==7.2.7
-pytest-cov==4.1.0
-pylint==2.17.4
-flake8==6.0.0
-## The following requirements were added by pip freeze:
-numpy==1.25.0
-pandas==2.0.2
-jaxlib==0.4.13
-requests==2.31.0
-scipy==1.11.0
+pymc>=5.7.*
+--find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+"jax[cuda12_pip]"
+jaxlib
+numpyro
+blackjax
+arviz
+"dask[complete]"
+scikit-learn
+numpy>=1.25.*
+pandas>=2.0.*
+scipy>=1.11.*
+jupyterlab>=4.0.*
+seaborn
+pyyaml
+requests>=2.31.*
+pytest>=7.4.*
+coverage>=7.2.7
+pytest-cov>=4.1.0
+pylint>=2.17.4
+flake8>=6.0.*

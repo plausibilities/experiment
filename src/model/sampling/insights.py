@@ -1,5 +1,5 @@
 """
-The main module for running other classes
+insights.py
 """
 import logging
 import os
@@ -15,9 +15,8 @@ def main():
     :return: None
     """
 
-    # Notes
-    logger.info('JAX')
-    
+    logger.info('Sampling Options')
+
     # Sample data
     data: config.Config().DataCollection = src.data.points.Points().exc()
     logger.info(type(data))
@@ -28,12 +27,20 @@ def main():
     # The inference instance
     inference = src.model.inference.Inference(model=model)
 
-    # Estimating the model's parameters
-    objects = inference.exc(sampler='blackjax', method='vectorized')
-    logger.info(objects)
+    # Estimating the model's parameters via different sampling methods
+    computations = []
+    for sampler, method in zip(samplers, methods):
+        
+        starts = time.time()
+        objects = inference.exc(sampler=sampler, method=method)
+        logger.info(objects)
+        computations.append({'sampler': sampler, 'method': method, 'seconds': {time.time() - starts}})
+
+    logger.info(computations)
 
     # Delete __pycache__ directories
     src.functions.extraneous.Extraneous().exc()
+
 
 if __name__ == '__main__':
 
@@ -56,5 +63,9 @@ if __name__ == '__main__':
     import src.functions.extraneous
     import src.model.algorithm
     import src.model.inference
+
+    # The inference options
+    samplers = ['numpyro', 'numpyro', 'blackjax']
+    methods = ['parallel', 'vectorized', 'vectorized']
 
     main()

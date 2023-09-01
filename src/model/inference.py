@@ -1,3 +1,6 @@
+"""
+inference.py
+"""
 import logging
 
 import arviz
@@ -12,7 +15,8 @@ class Inference:
 
     def __init__(self, model: pymc.Model):
         """
-
+        
+        :param model:
         """
 
         self.__model = model
