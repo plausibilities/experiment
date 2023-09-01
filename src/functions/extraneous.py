@@ -1,6 +1,10 @@
+"""
+extraneous.py
+"""
+import logging
 import pathlib
 import shutil
-import logging
+
 
 class Extraneous:
 
