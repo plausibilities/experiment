@@ -4,8 +4,9 @@ insights.py
 import logging
 import os
 import sys
-import pymc
 import time
+
+import pymc
 
 
 def main():
@@ -56,9 +57,9 @@ if __name__ == '__main__':
     # Classes
     import config
     import src.data.points
+    import src.functions.extraneous
     import src.model.algorithm
     import src.model.inference
-    import src.functions.extraneous
 
     # The inference options
     samplers = ['numpyro', 'numpyro', 'blackjax']
