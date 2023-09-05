@@ -10,7 +10,8 @@ dependencies:
     - "jax[cuda12_pip]" 
     - jaxlib
     - numpyro
-    - blackjax 
+    - blackjax
+    - jupyterlab 
   - arviz 
   - dask
   - scikit-learn
