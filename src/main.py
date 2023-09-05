@@ -7,6 +7,7 @@ import sys
 import time
 
 import pymc
+import jax
 
 
 def main():
@@ -17,6 +18,8 @@ def main():
 
     # Notes
     logger.info('JAX')
+    logger.info(jax.devices(backend='gpu'))
+    logger.info(f"The number of GPU devices: {jax.device_count(backend='gpu')}")
     
     # Sample data
     data: config.Config().DataCollection = src.data.points.Points().exc()
