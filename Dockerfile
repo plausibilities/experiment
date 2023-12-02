@@ -2,6 +2,10 @@
 FROM nvidia/cuda:12.2.2-base-ubuntu22.04
 
 
+# Time Zone
+RUN DEBIAN_FRONTEND=noninteractive TZ="Europe/London" apt-get -y install tzdata
+
+
 # From existing image ...
 COPY --from=continuumio/miniconda3 /opt/conda /opt/conda
 ENV PATH=/opt/conda/bin:$PATH
