@@ -6,8 +6,7 @@ dependencies:
   - pymc>=5.7.*
   - pip
   - pip:
-    - --find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-    - "jax[cuda12_pip]" 
+    - --find-links https://storage.googleapis.com/jax-releases/jaxlib_nightly_cuda12_releases.html
     - jaxlib
     - numpyro
     - blackjax
@@ -18,6 +17,7 @@ dependencies:
   - numpy>=1.25.*
   - pandas>=2.0.*
   - scipy>=1.11.*
+  - yellowbrick
   - pyyaml
   - requests
   - pytest
