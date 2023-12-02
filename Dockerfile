@@ -2,10 +2,6 @@
 FROM nvidia/cuda:12.2.2-base-ubuntu22.04
 
 
-# Time Zone
-RUN DEBIAN_FRONTEND=noninteractive TZ="Europe/London" apt-get -y install tzdata
-
-
 # From existing image ...
 COPY --from=continuumio/miniconda3 /opt/conda /opt/conda
 ENV PATH=/opt/conda/bin:$PATH
@@ -20,8 +16,14 @@ COPY ./environment.yml .
 SHELL [ "/bin/bash", "-c" ]
 
 
+# Time Zone
+# ARG DEBIAN_FRONTEND=noninteractive
+# ENV TZ="Europe/London"
+RUN apt update && DEBIAN_FRONTEND=noninteractive TZ="Europe/London" apt -y install tzdata
+
+
 # Update
-RUN  apt update && apt -y install sudo && apt -y install vim && apt -y install wget && \
+RUN  apt -y install sudo && apt -y install vim && apt -y install wget && \
      apt -y install software-properties-common && add-apt-repository ppa:git-core/ppa && apt -y install git-all && \
      conda init bash && conda config --set auto_activate_base false && \
      conda env create -f environment.yml -p /opt/conda/envs/uncertainty && \
