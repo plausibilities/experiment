@@ -10,6 +10,7 @@ ENV PATH=/opt/conda/bin:$PATH
 # The .yml
 WORKDIR /app
 COPY ./environment.yml .
+COPY ./.devcontainer/requirements.txt /app/requirements.txt
 
 
 # Environment
