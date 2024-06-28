@@ -1,13 +1,19 @@
+"""
+Module algorithm.py
+"""
 import pymc
 import logging
 import src.elements.points as pi
 
 
 class Algorithm:
+    """
+    For model building
+    """
 
     def __init__(self):
         """
-
+        Constructor
         """
 
         logging.basicConfig(level=logging.INFO,
@@ -16,6 +22,12 @@ class Algorithm:
         self.__logger = logging.getLogger(__name__)
 
     def exc(self, data: pi.Points) -> pymc.Model:
+        """
+
+        :param data: For details, refer to src/element/points
+        :return:
+            model: a PyMC Model
+        """
 
         with pymc.Model() as model:
 
