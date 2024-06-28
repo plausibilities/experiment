@@ -6,4 +6,4 @@ dependencies:
   - pymc>=5.16
   - pip
   - pip:
-    - -r .devcontainer/requirements.txt
+    - -r requirements.txt
