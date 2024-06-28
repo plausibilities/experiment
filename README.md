@@ -42,7 +42,8 @@ Subsequently, run a container, i.e., an instance, of the image `uncertainty` via
 <br>
 
 ```shell
-docker run --rm -i -t -p 127.0.0.1:10000:8888 -w /app --mount type=bind,src="$(pwd)",target=/app uncertainty
+docker run --rm -i -t -p 127.0.0.1:10000:8888 -w /app 
+	--mount type=bind,src="$(pwd)",target=/app uncertainty
 ```
 
 <br>
@@ -132,13 +133,15 @@ python -m pytest ...
 For code & complexity analysis.  A directive of the form
 
 ```bash
-python -m flake8 --count --select=E9,F63,F7,F82 --show-source --statistics src/{directory.name}
+python -m flake8 --count --select=E9,F63,F7,F82 --show-source 
+	--statistics src/{directory.name}
 ```
 
 inspects issues in relation to logic (F7), syntax (Python E9, Flake F7), mathematical formulae symbols (F63), undefined variable names (F82).  Additionally
 
 ```shell
-python -m flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics src/{directory.name}
+python -m flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 
+	--statistics src/{directory.name}
 ```
 
 inspects complexity.
