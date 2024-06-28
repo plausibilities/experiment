@@ -2,27 +2,8 @@ name: uncertainty
 channels:
   - conda-forge
 dependencies:
-  - python==3.11.*
-  - pymc>=5.7.*
+  - python==3.12
+  - pymc>=5.16
   - pip
   - pip:
-    - --find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-    - "jax[cuda12_pip]" 
-    - jaxlib
-    - numpyro
-    - blackjax
-    - jupyterlab 
-  - arviz 
-  - dask
-  - scikit-learn
-  - numpy>=1.25.*
-  - pandas>=2.0.*
-  - scipy>=1.11.*
-  - yellowbrick
-  - pyyaml
-  - requests
-  - pytest
-  - coverage
-  - pylint
-  - pytest-cov
-  - flake8
+    - -r .devcontainer/requirements.txt
