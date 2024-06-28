@@ -1,3 +1,4 @@
+jax[cuda12]
 pymc>=5.16
 dask[complete]>=2024.5
 numpyro
