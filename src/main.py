@@ -4,7 +4,6 @@ The main module for running other classes
 import logging
 import os
 import sys
-import time
 
 import pymc
 import jax
@@ -22,8 +21,7 @@ def main():
     logger.info(f"The number of GPU devices: {jax.device_count(backend='gpu')}")
     
     # Sample data
-    data: config.Config().DataCollection = src.data.points.Points().exc()
-    logger.info(type(data))
+    data: pi.Points  = src.data.points.Points().exc()
     
     # The suggested model
     model: pymc.Model = src.model.algorithm.Algorithm().exc(data=data)
@@ -59,5 +57,6 @@ if __name__ == '__main__':
     import src.functions.cache
     import src.model.algorithm
     import src.model.inference
+    import src.elements.points as pi
 
     main()
