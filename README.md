@@ -176,9 +176,13 @@ JAX
 * [JAX Containers](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/jax), [JAX Early Access](https://developer.nvidia.com/jax-container-early-access)
   * What Is In The Container?
 
+XLA (Accelerated Linear Algebra)
+* [OpenXLA](https://openxla.org/xla)
+* [Graphics Processing Unit & XLA Flags](https://jax.readthedocs.io/en/latest/gpu_performance_tips.html) 
+
 <br>
 
-PyMC
+[PyMC](https://www.pymc.io/welcome.html)
 * [PyMC, JAX, Graphics Processing Unit](https://www.pymc-labs.com/blog-posts/pymc-stan-benchmark/)
 
 <br>
