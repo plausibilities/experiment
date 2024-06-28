@@ -63,6 +63,18 @@ Get the name of the container via:
 docker ps --all
 ```
 
+<br>
+
+
+### A note about JAX
+
+
+Adding
+
+>  JAX_PLATFORM_NAME=GPU
+
+to `/etc/profile` might address the verbose device info; `JAX_PLATFORM_NAME` is being deprecated in favour of `JAX_PLATFORMS`, in progress.
+
 
 <br>
 
@@ -89,6 +101,8 @@ IDEA** set up involves connecting to a machine's Docker [daemon](https://www.jet
 The GitHub Actions script [main.yml](.github/workflows/main.yml) conducts code analysis within a Cloud GitHub Workspace.  Depending on the script, code analysis may occur `on push` to any repository branch, or `on push` to a specific branch.
 
 The sections herein outline remote code analysis.
+
+<br>
 
 ### pylint
 
@@ -145,6 +159,28 @@ python -m flake8 --count --exit-zero --max-complexity=10 --max-line-length=127
 ```
 
 inspects complexity.
+
+
+<br>
+
+
+## References
+
+JAX
+* [JAX](https://developer.nvidia.com/jax-container-early-access)
+* [JAX Containers](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/jax)
+  * What Is In The Container?
+* [Building JAX Dependent Products](https://jax.readthedocs.io/en/latest/installation.html)
+* [JAX & GPU](https://www.pymc-labs.com/blog-posts/pymc-stan-benchmark/)
+* [Snippets](https://github.com/google/jax)
+* [JAX](https://jax.readthedocs.io/en/latest/)
+
+<br>
+
+Miscellaneous
+* [conda](https://docs.conda.io/projects/conda/en/stable/)
+    * `conda search -i ....`
+* [pip](https://pip.pypa.io/en/stable/)
 
 
 <br>
