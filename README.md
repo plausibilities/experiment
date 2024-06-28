@@ -42,7 +42,7 @@ Subsequently, run a container, i.e., an instance, of the image `uncertainty` via
 <br>
 
 ```shell
-docker run --rm -i -t -p 127.0.0.1:10000:8888 -w /app 
+docker run --rm --gpus all -i -t -p 127.0.0.1:10000:8888 -w /app 
 	--mount type=bind,src="$(pwd)",target=/app uncertainty
 ```
 
