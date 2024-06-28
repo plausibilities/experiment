@@ -30,8 +30,8 @@ should include
 
 <br>
 
-| repository   | tag    | image id | created  | size     |
-|:-------------|:-------|:---------|:---------|:---------|
+| repository  | tag    | image id | created  | size     |
+|:------------|:-------|:---------|:---------|:---------|
 | uncertainty | latest | $\ldots$ | $\ldots$ | $\ldots$ |
 
 
