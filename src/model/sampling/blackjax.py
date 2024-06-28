@@ -6,7 +6,6 @@ import os
 import arviz
 import jax
 import pymc
-import pymc.sampling_jax
 
 import config
 
@@ -40,8 +39,7 @@ class BlackJAX:
 
         with model:
             # Inference
-            trace = pymc.sampling_jax.sample_blackjax_nuts(
-                draws=2000, tune=1000, chains=chains, target_accept=0.9,
-                random_seed=self.random_seed, chain_method=method)
+            trace = pymc.sample(draws=2000, tune=1000, chains=chains, target_accept=0.9,
+                random_seed=self.random_seed, nuts_sampler='blackjax', chain_method=method)
 
         return trace
