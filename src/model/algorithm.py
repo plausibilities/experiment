@@ -1,6 +1,6 @@
 import pymc
 import logging
-import config
+import src.elements.points as pi
 
 
 class Algorithm:
@@ -15,7 +15,7 @@ class Algorithm:
                             datefmt='%Y-%m-%d %H:%M:%S')
         self.__logger = logging.getLogger(__name__)
 
-    def exc(self, data: config.Config().DataCollection) -> pymc.Model:
+    def exc(self, data: pi.Points) -> pymc.Model:
 
         with pymc.Model() as model:
 
