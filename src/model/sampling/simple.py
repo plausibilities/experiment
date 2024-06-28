@@ -3,7 +3,6 @@ simple.py
 """
 import arviz
 import pymc
-import pymc.sampling_jax
 
 import config
 
