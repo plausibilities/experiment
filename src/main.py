@@ -30,7 +30,7 @@ def main():
     inference = src.model.inference.Inference(model=model)
 
     # Estimating the model's parameters
-    objects = inference.exc(sampler='blackjax', method='vectorized')
+    objects = inference.exc(sampler='blackjax', method='parallel')
     logger.info(objects)
 
     # Delete __pycache__ directories
@@ -44,6 +44,10 @@ if __name__ == '__main__':
     sys.path.append(os.path.join(root, 'src'))
 
     os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+    os.environ['XLA_FLAGS'] = (
+        '--xla_gpu_enable_triton_softmax_fusion=True '
+        '--xla_gpu_triton_gemm_any=True '
+    )
 
     # Logging
     logging.basicConfig(level=logging.INFO,
@@ -52,11 +56,10 @@ if __name__ == '__main__':
     logger = logging.getLogger(__name__)
 
     # Classes
-    import config
     import src.data.points
+    import src.elements.points as pi
     import src.functions.cache
     import src.model.algorithm
     import src.model.inference
-    import src.elements.points as pi
 
     main()
