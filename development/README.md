@@ -52,6 +52,7 @@ to `/etc/profile` might address the verbose device info; `JAX_PLATFORM_NAME` is 
 * [JAX Containers](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/jax)
   * Study the section: What Is In The Container?
   * [JAX](https://developer.nvidia.com/jax-container-early-access)
+* [Building JAX Dependent Products](https://jax.readthedocs.io/en/latest/installation.html)
 
 <br>
 <br>
