@@ -49,6 +49,10 @@ to `/etc/profile` might address the verbose device info; `JAX_PLATFORM_NAME` is 
     * `conda search -i ....`
 * [pip](https://pip.pypa.io/en/stable/)
 
+* [JAX Containers](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/jax)
+  * Study the section: What Is In The Container?
+  * [JAX](https://developer.nvidia.com/jax-container-early-access)
+
 <br>
 <br>
 
