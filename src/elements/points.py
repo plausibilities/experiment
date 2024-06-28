@@ -2,6 +2,7 @@
 This is the data type Points
 """
 import typing
+
 import numpy as np
 
 
