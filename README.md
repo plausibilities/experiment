@@ -56,6 +56,7 @@ i.e., -w, must be inline with this project's top directory.  Additionally
 * -t: [tag](https://docs.docker.com/get-started/02_our_app/#:~:text=Finally%2C%20the-,%2Dt,-flag%20tags%20your)
 * -p: [publish](https://docs.docker.com/engine/reference/commandline/run/#:~:text=%2D%2Dpublish%20%2C-,%2Dp,-Publish%20a%20container%E2%80%99s)
 
+<br>
 
 Get the name of the container via:
 
@@ -68,7 +69,6 @@ docker ps --all
 
 ### A note about JAX
 
-
 Adding
 
 >  JAX_PLATFORM_NAME=GPU
@@ -77,6 +77,7 @@ to `/etc/profile` might address the verbose device info; `JAX_PLATFORM_NAME` is 
 
 
 <br>
+
 
 ### Remote Development & Integrated Development Environments
 
@@ -167,13 +168,16 @@ inspects complexity.
 ## References
 
 JAX
-* [JAX](https://developer.nvidia.com/jax-container-early-access)
-* [JAX Containers](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/jax)
-  * What Is In The Container?
-* [Building JAX Dependent Products](https://jax.readthedocs.io/en/latest/installation.html)
-* [JAX & GPU](https://www.pymc-labs.com/blog-posts/pymc-stan-benchmark/)
-* [Snippets](https://github.com/google/jax)
 * [JAX](https://jax.readthedocs.io/en/latest/)
+* [Building JAX Dependent Products](https://jax.readthedocs.io/en/latest/installation.html)
+* [Snippets](https://github.com/google/jax)
+* [JAX Containers](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/jax), [JAX Early Access](https://developer.nvidia.com/jax-container-early-access)
+  * What Is In The Container?
+
+<br>
+
+PyMC
+* [PyMC, JAX, Graphics Processing Unit](https://www.pymc-labs.com/blog-posts/pymc-stan-benchmark/)
 
 <br>
 
