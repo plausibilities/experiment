@@ -22,6 +22,8 @@ class Points:
         """
 
         :return:
+            abscissae: An original set of x values.
+            ordinates: The corresponding y values abscissae.
         """
 
         abscissae = np.linspace(start=0, stop=2, num=self.parameters.n_instances)
@@ -35,9 +37,11 @@ class Points:
     def __measures(self, abscissae: np.ndarray, ordinates: np.ndarray) -> (np.ndarray, np.ndarray):
         """
 
-        :param abscissae:
-        :param ordinates:
+        :param abscissae: An original set of x values.
+        :param ordinates: The corresponding y values abscissae.
         :return:
+            independent:  An excerpt of abscissae.
+            dependent: The corresponding **noisy y values** of independent.
         """
 
         # Noise
@@ -55,6 +59,10 @@ class Points:
         """
 
         :return:
+            abscissae: An original set of x values.
+            ordinates: The corresponding y values abscissae.
+            independent:  An excerpt of abscissae.
+            dependent: The corresponding **noisy y values** of independent.
         """
 
         abscissae, ordinates = self.__model()
