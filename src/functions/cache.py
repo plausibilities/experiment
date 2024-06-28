@@ -1,12 +1,12 @@
 """
-extraneous.py
+cache.py
 """
 import logging
 import pathlib
 import shutil
 
 
-class Extraneous:
+class Cache:
 
     def __init__(self) -> None:
         """
