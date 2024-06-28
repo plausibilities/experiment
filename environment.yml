@@ -1,9 +1,0 @@
-name: uncertainty
-channels:
-  - conda-forge
-dependencies:
-  - python==3.12
-  - pymc>=5.16
-  - pip
-  - pip:
-    - -r requirements.txt
