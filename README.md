@@ -64,6 +64,8 @@ Get the name of the container via:
 docker ps --all
 ```
 
+Never deploy a root container, study the production [Dockerfile](Dockerfile); cf. [/.devcontainer/Dockerfile](.devcontainer/Dockerfile)
+
 <br>
 
 
