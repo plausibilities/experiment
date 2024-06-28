@@ -36,7 +36,7 @@ def main():
     logger.info(objects)
 
     # Delete __pycache__ directories
-    src.functions.extraneous.Extraneous().exc()
+    src.functions.cache.Cache().exc()
 
 if __name__ == '__main__':
 
@@ -56,7 +56,7 @@ if __name__ == '__main__':
     # Classes
     import config
     import src.data.points
-    import src.functions.extraneous
+    import src.functions.cache
     import src.model.algorithm
     import src.model.inference
 
