@@ -1,7 +1,6 @@
 """
 numpyro.py
 """
-import os
 
 import arviz
 import jax
