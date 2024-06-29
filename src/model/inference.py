@@ -21,8 +21,8 @@ class Inference:
         self.__sampling = sampling
 
         self.__nuts_samplers = ['blackjax', 'numpyro', 'pymc']
-        self.__graphics_chain_methods = ['parallel', 'vectorized']
         self.__graphics_nuts_samplers = ['blackjax', 'numpyro']
+        self.__graphics_chain_methods = ['parallel', 'vectorized']
 
     def __chains(self, chain_method: str) -> int:
         """
@@ -41,7 +41,7 @@ class Inference:
     @staticmethod
     def __nuts_sampler_kwargs(nuts_sampler: str, chain_method: str):
         """
-        Sets the NUTS sampling dictionary for BlackJax or Numpyro
+        Sets the sampling dictionary for BlackJax or Numpyro
 
         :param nuts_sampler:
         :param chain_method:
@@ -55,6 +55,22 @@ class Inference:
         else:
             return None
 
+    def __inspect(self, nuts_sampler: str, chain_method: str):
+        """
+
+        :param nuts_sampler: A NUTS type
+                             [No U Turn Sampler](https://www.pymc.io/projects/docs/en/latest/glossary.html#term-No-U-Turn-Sampler)
+        :param chain_method: A chain method type
+        :return:
+            None
+        """
+
+        if chain_method not in self.__graphics_chain_methods:
+            raise logging.info('Unknown graphics chain method; parallel or vectorized only.')
+
+        if nuts_sampler not in self.__nuts_samplers:
+            raise logging.info('Unknown graphics chain method; parallel or vectorized only.')
+
     # noinspection PyTypeChecker
     def exc(self, model: pymc.model.Model, nuts_sampler: str, chain_method: str)  -> arviz.InferenceData:
         """
@@ -66,14 +82,10 @@ class Inference:
             arviz.InferenceData
         """
 
-        if chain_method not in self.__graphics_chain_methods:
-            raise logging.info('Unknown graphics chain method; parallel or vectorized only.')
+        # Ascertain NUTS, and chain method, settings.
+        self.__inspect(nuts_sampler=nuts_sampler, chain_method=chain_method)
 
-        if nuts_sampler not in self.__nuts_samplers:
-            raise logging.info('Unknown graphics chain method; parallel or vectorized only.')
-
-
-        # The BlackJax progress bar fails
+        # At present, the BlackJax progress bar fails
         if nuts_sampler == 'blackjax':
             progressbar = False
         else:
@@ -81,7 +93,6 @@ class Inference:
 
         # Proceed
         with model:
-
             trace = pymc.sample(
                 draws=self.__sampling.draws,
                 tune=self.__sampling.tune,
