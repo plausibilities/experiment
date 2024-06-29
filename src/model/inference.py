@@ -1,5 +1,6 @@
 """Module inference.py"""
 import arviz
+import logging
 import jax
 import pymc
 
@@ -19,6 +20,10 @@ class Inference:
 
         self.__sampling = sampling
 
+        self.__nuts_samplers = ['blackjax', 'numpyro', 'pymc']
+        self.__graphics_chain_methods = ['parallel', 'vectorized']
+        self.__graphics_nuts_samplers = ['blackjax', 'numpyro']
+
     def __chains(self, chain_method: str) -> int:
         """
         Ensures the chains value is in line with processing units
@@ -27,8 +32,6 @@ class Inference:
         :param chain_method:
         :return:
         """
-
-        # if chain_method not in
 
         if chain_method == 'parallel':
             return jax.device_count(backend='gpu')
@@ -62,6 +65,13 @@ class Inference:
         :return:
             arviz.InferenceData
         """
+
+        if chain_method not in self.__graphics_chain_methods:
+            raise logging.info('Unknown graphics chain method; parallel or vectorized only.')
+
+        if nuts_sampler not in self.__nuts_samplers:
+            raise logging.info('Unknown graphics chain method; parallel or vectorized only.')
+
 
         # The BlackJax progress bar fails
         if nuts_sampler == 'blackjax':
