@@ -5,8 +5,9 @@ import logging
 import os
 import sys
 
-import pymc
+import arviz
 import jax
+import pymc
 
 
 def main():
@@ -30,8 +31,14 @@ def main():
 
     # Inference
     inference = src.model.inference.Inference(model=model)
-    estimates = inference.exc(sampler='blackjax', method='vectorized')
-    logger.info(estimates)
+    estimates:arviz.InferenceData = inference.exc(sampler='blackjax', method='vectorized')
+    logger.info(estimates.__dict__)
+
+    sampling = smp.Sampling(chains=8)
+    interface = src.model.interface.Interface(sampling=sampling)
+    estimates: arviz.InferenceData = interface.exc(model=model, nuts_sampler='blackjax', method='vectorized')
+    logger.info(estimates.__dict__)
+
 
     # Delete __pycache__ directories
     src.functions.cache.Cache().exc()
@@ -58,8 +65,10 @@ if __name__ == '__main__':
     # Classes
     import src.data.points
     import src.elements.points as pi
+    import src.elements.sampling as smp
     import src.functions.cache
     import src.model.algorithm
     import src.model.inference
+    import src.model.interface
 
     main()
