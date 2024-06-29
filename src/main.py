@@ -31,12 +31,12 @@ def main():
 
     # Inference
     inference = src.model.inference.Inference(model=model)
-    estimates:arviz.InferenceData = inference.exc(sampler='blackjax', method='vectorized')
+    estimates:arviz.InferenceData = inference.exc(sampler='numpyro', method='vectorized')
     logger.info(estimates.__dict__)
 
     sampling = smp.Sampling(chains=8)
     interface = src.model.interface.Interface(sampling=sampling)
-    estimates: arviz.InferenceData = interface.exc(model=model, nuts_sampler='blackjax', method='vectorized')
+    estimates: arviz.InferenceData = interface.exc(model=model, nuts_sampler='numpyro', method='vectorized')
     logger.info(estimates.__dict__)
 
 
