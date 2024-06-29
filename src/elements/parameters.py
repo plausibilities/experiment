@@ -13,22 +13,22 @@ class Parameters(typing.NamedTuple):
 
     Attributes
     ----------
-      n_instances :
+      n_instances : int
         The number of instances.
 
-      n_excerpt :
+      n_excerpt : int
         An excerpt's length.
 
-      intercept :
+      intercept : float
         The intercept c of y = mx + c.
 
-      gradient :
+      gradient : float
         The gradient m of y = mx + c.
 
-      noise_location :
+      noise_location : float
         The mean of a Gaussian distribution
 
-      noise_scale :
+      noise_scale : float
         The standard deviation of a Gaussian distribution.
 
     """
