@@ -1,6 +1,6 @@
 """Module inference.py"""
+
 import arviz
-import logging
 import jax
 import pymc
 
@@ -35,11 +35,10 @@ class Inference:
 
         if chain_method == 'parallel':
             return jax.device_count(backend='gpu')
-        else:
-            return self.__sampling.chains
 
-    @staticmethod
-    def __nuts_sampler_kwargs(nuts_sampler: str, chain_method: str):
+        return self.__sampling.chains
+
+    def __nuts_sampler_kwargs(self, nuts_sampler: str, chain_method: str):
         """
         Sets the sampling dictionary for BlackJax or Numpyro
 
@@ -49,27 +48,29 @@ class Inference:
             A dict of arguments for Numpyro or BlackJax
         """
 
-        if nuts_sampler in ['blackjax', 'numpyro']:
+        if nuts_sampler in self.__graphics_nuts_samplers:
             return {'chain_method': chain_method,
                     'postprocessing_backend': 'gpu'}
-        else:
-            return None
 
-    def __inspect(self, nuts_sampler: str, chain_method: str):
+        return None
+
+    def __inspect(self, nuts_sampler: str, chain_method: str) -> bool:
         """
 
-        :param nuts_sampler: A NUTS type
-                             [No U Turn Sampler](https://www.pymc.io/projects/docs/en/latest/glossary.html#term-No-U-Turn-Sampler)
+        :param nuts_sampler: A NUTS (No U Turn Sampler) type
+
         :param chain_method: A chain method type
         :return:
             None
         """
 
         if chain_method not in self.__graphics_chain_methods:
-            raise logging.info('Unknown graphics chain method; parallel or vectorized only.')
+            raise Exception('Unknown graphics chain method; parallel or vectorized only.')
 
         if nuts_sampler not in self.__nuts_samplers:
-            raise logging.info('Unknown graphics chain method; parallel or vectorized only.')
+            raise Exception('Unknown graphics chain method; parallel or vectorized only.')
+
+        return True
 
     # noinspection PyTypeChecker
     def exc(self, model: pymc.model.Model, nuts_sampler: str, chain_method: str)  -> arviz.InferenceData:
