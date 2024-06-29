@@ -32,7 +32,7 @@ def main():
     inference = src.model.inference.Inference(model=model)
 
     # Estimating the model's parameters
-    objects = inference.exc(sampler='blackjax', method='parallel')
+    objects = inference.exc(sampler='blackjax', method='vectorized')
     logger.info(objects)
 
     # Delete __pycache__ directories
