@@ -186,6 +186,7 @@ XLA (Accelerated Linear Algebra)
 * [PyMC, JAX, Graphics Processing Unit](https://www.pymc-labs.com/blog-posts/pymc-stan-benchmark/)
 * [Model Checking](https://pymcmc.readthedocs.io/en/latest/modelchecking.html)
 * [Sampling](https://www.pymc-labs.com/blog-posts/pymc-stan-benchmark/)
+* [Glossary](https://www.pymc.io/projects/docs/en/latest/glossary.html)
 
 <br>
 
