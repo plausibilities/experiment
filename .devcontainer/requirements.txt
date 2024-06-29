@@ -9,7 +9,6 @@ graphviz
 scikit-learn
 numpy>=1.25
 pandas>=2.2
-scipy>=1.14
 matplotlib
 seaborn
 pyyaml
