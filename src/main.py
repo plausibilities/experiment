@@ -28,12 +28,10 @@ def main():
     # The suggested model
     model: pymc.Model = src.model.algorithm.Algorithm().exc(data=data)
 
-    # The inference instance
+    # Inference
     inference = src.model.inference.Inference(model=model)
-
-    # Estimating the model's parameters
-    objects = inference.exc(sampler='blackjax', method='vectorized')
-    logger.info(objects)
+    estimates = inference.exc(sampler='blackjax', method='vectorized')
+    logger.info(estimates)
 
     # Delete __pycache__ directories
     src.functions.cache.Cache().exc()
