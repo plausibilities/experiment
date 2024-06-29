@@ -6,7 +6,7 @@ import pymc
 import src.elements.sampling as smp
 
 
-class Interference:
+class Inference:
 
     def __init__(self, sampling: smp.Sampling):
 
