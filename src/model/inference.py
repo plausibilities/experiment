@@ -6,9 +6,9 @@ import logging
 import arviz
 import pymc
 
-import src.model.sampling.blackjax
-import src.model.sampling.numpyro
-import src.model.sampling.simple
+import src.model.initial.blackjax
+import src.model.initial.numpyro
+import src.model.initial.simple
 
 
 class Inference:
@@ -41,10 +41,10 @@ class Inference:
 
         match sampler:
             case 'simple':
-                return src.model.sampling.simple.Simple().exc(model=self.__model)
+                return src.model.initial.simple.Simple().exc(model=self.__model)
             case 'numpyro':
-                return src.model.sampling.numpyro.NumPyro().exc(model=self.__model, method=method)
+                return src.model.initial.numpyro.NumPyro().exc(model=self.__model, method=method)
             case 'blackjax':
-                return src.model.sampling.blackjax.BlackJAX().exc(model=self.__model, method=method)
+                return src.model.initial.blackjax.BlackJAX().exc(model=self.__model, method=method)
             case _:
                 raise f'{sampler} is not a known sampler.'
