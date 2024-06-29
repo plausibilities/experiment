@@ -187,6 +187,7 @@ XLA (Accelerated Linear Algebra)
 * [Model Checking](https://pymcmc.readthedocs.io/en/latest/modelchecking.html)
 * [Sampling](https://www.pymc-labs.com/blog-posts/pymc-stan-benchmark/)
 * [Glossary](https://www.pymc.io/projects/docs/en/latest/glossary.html)
+  * [No U Turn Sampler](https://www.pymc.io/projects/docs/en/latest/glossary.html#term-No-U-Turn-Sampler) 
 
 <br>
 
