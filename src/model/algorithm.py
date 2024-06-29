@@ -46,6 +46,6 @@ class Algorithm:
 
             # Define likelihood
             likelihood = pymc.Normal(name='y', mu=regression, sigma=sigma, observed=data.dependent)
-            self.__logger.info(likelihood)
+            self.__logger.info('Likelihood: %s', likelihood)
 
         return model
