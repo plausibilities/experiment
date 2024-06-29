@@ -1,6 +1,6 @@
 <br>
 
-**Bayesian computation experiments.**
+**Bayesian Computation Experiments**
 
 <br>
 
@@ -191,17 +191,21 @@ XLA (Accelerated Linear Algebra)
 
 <br>
 
-Miscellaneous
-* [conda](https://docs.conda.io/projects/conda/en/stable/)
-    * `conda search -i ....`
-* [pip](https://pip.pypa.io/en/stable/)
-* [Multiprocessing](https://docs.python.org/3.10/library/multiprocessing.html#module-multiprocessing)
+[Multiprocessing](https://docs.python.org/3.10/library/multiprocessing.html#)
 * [Multiprocessing Context](https://superfastpython.com/multiprocessing-context-in-python/)
 * [Multiprocessing & Python](https://superfastpython.com/multiprocessing-in-python/)
 * Fork Issues
   * [details](https://docs.python.org/3/library/os.html#os.fork)
   * [discussion](https://discuss.python.org/t/concerns-regarding-deprecation-of-fork-with-alive-threads/33555)
 
+<br>
+
+Miscellaneous
+* [conda](https://docs.conda.io/projects/conda/en/stable/)
+    * `conda search -i ....`
+* [pip](https://pip.pypa.io/en/stable/)
+* [Python Package Index](https://pypi.org)
+* [Anaconda Packages](https://anaconda.org)
 
 <br>
 <br>
