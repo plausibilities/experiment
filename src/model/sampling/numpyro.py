@@ -38,8 +38,8 @@ class NumPyro:
             chains = 4
 
         with model:
-            # Inference
             trace = pymc.sample(draws=2000, tune=1000, chains=chains, target_accept=0.9,
-                random_seed=self.random_seed, nuts_sampler='numpyro', chain_method=method)
+                                random_seed=self.random_seed, nuts_sampler='numpyro',
+                                nuts_sampler_kwargs={'chain_method': method})
 
         return trace
