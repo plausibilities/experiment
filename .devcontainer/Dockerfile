@@ -1,5 +1,5 @@
 # Starting with ...
-FROM nvcr.io/nvidia/jax:23.08-py3
+FROM nvcr.io/nvidia/pytorch:24.06-py3
 
 
 # If the steps of a `Dockerfile` use files that are different from the `context` file, COPY the
