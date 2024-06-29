@@ -184,6 +184,8 @@ XLA (Accelerated Linear Algebra)
 
 [PyMC](https://www.pymc.io/welcome.html)
 * [PyMC, JAX, Graphics Processing Unit](https://www.pymc-labs.com/blog-posts/pymc-stan-benchmark/)
+* [Model Checking](https://pymcmc.readthedocs.io/en/latest/modelchecking.html)
+* [Sampling](https://www.pymc-labs.com/blog-posts/pymc-stan-benchmark/)
 
 <br>
 
@@ -191,6 +193,12 @@ Miscellaneous
 * [conda](https://docs.conda.io/projects/conda/en/stable/)
     * `conda search -i ....`
 * [pip](https://pip.pypa.io/en/stable/)
+* [Multiprocessing](https://docs.python.org/3.10/library/multiprocessing.html#module-multiprocessing)
+* [Multiprocessing Context](https://superfastpython.com/multiprocessing-context-in-python/)
+* [Multiprocessing & Python](https://superfastpython.com/multiprocessing-in-python/)
+* Fork Issues
+  * [details](https://docs.python.org/3/library/os.html#os.fork)
+  * [discussion](https://discuss.python.org/t/concerns-regarding-deprecation-of-fork-with-alive-threads/33555)
 
 
 <br>
