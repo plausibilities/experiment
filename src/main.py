@@ -22,6 +22,8 @@ def main():
     
     # Sample data
     data: pi.Points  = src.data.points.Points().exc()
+    logger.info(data.dependent.shape)
+    logger.info(data.independent.shape)
     
     # The suggested model
     model: pymc.Model = src.model.algorithm.Algorithm().exc(data=data)
