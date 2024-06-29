@@ -45,12 +45,13 @@ class Points:
 
         # Noise
         noise = np.random.normal(
-            loc=self.__parameters.noise_location, scale=self.__parameters.noise_scale, size=self.__parameters.n_excerpt)
+            loc=self.__parameters.noise_location, scale=self.__parameters.noise_scale,
+            size=self.__parameters.n_excerpt)
         noise = np.expand_dims(noise, axis=1)
 
         # The Measures
         independent = abscissae[:self.__parameters.n_excerpt]
-        dependent = ordinates[:self.__parameters.n_excerpt] + noise # [:self.__parameters.n_excerpt]
+        dependent = ordinates[:self.__parameters.n_excerpt] + noise
 
         return independent, dependent
 
