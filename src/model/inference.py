@@ -1,14 +1,21 @@
-import jax
+"""Module inference.py"""
 import arviz
-
+import jax
 import pymc
 
 import src.elements.sampling as smp
 
 
 class Inference:
+    """
+    Inference
+    """
 
     def __init__(self, sampling: smp.Sampling):
+        """
+
+        :param sampling:
+        """
 
         self.__sampling = sampling
 
@@ -34,6 +41,7 @@ class Inference:
         :param nuts_sampler:
         :param method:
         :return:
+            A dict of arguments for Numpyro or BlackJax
         """
 
         if nuts_sampler in ['blackjax', 'numpyro']:
@@ -47,9 +55,10 @@ class Inference:
         """
 
         :param model:
-        :param nuts_sampler: pymc, numpyro, blackjax
-        :param method: parallel, vectorized
+        :param nuts_sampler: Either pymc, numpyro, or blackjax
+        :param method: Either parallel or vectorized.  Applies to Numpyro & BlackJax only.
         :return:
+            arviz.InferenceData
         """
 
         # The BlackJax progress bar fails
