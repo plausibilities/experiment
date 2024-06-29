@@ -1,8 +1,10 @@
 """
 Module algorithm.py
 """
-import pymc
 import logging
+
+import pymc
+
 import src.elements.points as pi
 
 
