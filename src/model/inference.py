@@ -19,44 +19,46 @@ class Inference:
 
         self.__sampling = sampling
 
-    def __chains(self, method: str) -> int:
+    def __chains(self, chain_method: str) -> int:
         """
         Ensures the chains value is in line with processing units
         numbers, and computation logic.
 
-        :param method:
+        :param chain_method:
         :return:
         """
 
-        if method == 'parallel':
+        # if chain_method not in
+
+        if chain_method == 'parallel':
             return jax.device_count(backend='gpu')
         else:
             return self.__sampling.chains
 
     @staticmethod
-    def __nuts_sampler_kwargs(nuts_sampler: str, method: str):
+    def __nuts_sampler_kwargs(nuts_sampler: str, chain_method: str):
         """
         Sets the NUTS sampling dictionary for BlackJax or Numpyro
 
         :param nuts_sampler:
-        :param method:
+        :param chain_method:
         :return:
             A dict of arguments for Numpyro or BlackJax
         """
 
         if nuts_sampler in ['blackjax', 'numpyro']:
-            return {'chain_method': method,
+            return {'chain_method': chain_method,
                     'postprocessing_backend': 'gpu'}
         else:
             return None
 
     # noinspection PyTypeChecker
-    def exc(self, model: pymc.model.Model, nuts_sampler: str, method: str)  -> arviz.InferenceData:
+    def exc(self, model: pymc.model.Model, nuts_sampler: str, chain_method: str)  -> arviz.InferenceData:
         """
 
         :param model:
         :param nuts_sampler: Either pymc, numpyro, or blackjax
-        :param method: Either parallel or vectorized.  Applies to Numpyro & BlackJax only.
+        :param chain_method: Either parallel or vectorized.  Applies to Numpyro & BlackJax only.
         :return:
             arviz.InferenceData
         """
@@ -73,12 +75,12 @@ class Inference:
             trace = pymc.sample(
                 draws=self.__sampling.draws,
                 tune=self.__sampling.tune,
-                chains=self.__chains(method=method),
+                chains=self.__chains(chain_method=chain_method),
                 cores=self.__sampling.cores,
                 target_accept=self.__sampling.target_accept,
                 random_seed=self.__sampling.random_seed,
                 nuts_sampler=nuts_sampler,
-                nuts_sampler_kwargs=self.__nuts_sampler_kwargs(nuts_sampler=nuts_sampler, method=method),
+                nuts_sampler_kwargs=self.__nuts_sampler_kwargs(nuts_sampler=nuts_sampler, chain_method=chain_method),
                 progressbar=progressbar)
 
         return trace
