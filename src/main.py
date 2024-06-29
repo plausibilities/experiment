@@ -30,7 +30,7 @@ def main():
     model: pymc.Model = src.model.algorithm.Algorithm().exc(data=data)
 
     # Inference
-    inference = src.model.inference.Inference(model=model)
+    inference = src.model.initial.inference.Inference(model=model)
     estimates:arviz.InferenceData = inference.exc(sampler='numpyro', method='vectorized')
     logger.info(estimates.__dict__)
 
@@ -68,7 +68,7 @@ if __name__ == '__main__':
     import src.elements.sampling as smp
     import src.functions.cache
     import src.model.algorithm
-    import src.model.inference
+    import src.model.initial.inference
     import src.model.interface
 
     main()
