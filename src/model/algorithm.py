@@ -1,13 +1,21 @@
-import pymc
+"""
+Module algorithm.py
+"""
 import logging
-import config
+
+import pymc
+
+import src.elements.points as pi
 
 
 class Algorithm:
+    """
+    For model building
+    """
 
     def __init__(self):
         """
-
+        Constructor
         """
 
         logging.basicConfig(level=logging.INFO,
@@ -15,7 +23,13 @@ class Algorithm:
                             datefmt='%Y-%m-%d %H:%M:%S')
         self.__logger = logging.getLogger(__name__)
 
-    def exc(self, data: config.Config().DataCollection) -> pymc.Model:
+    def exc(self, data: pi.Points) -> pymc.Model:
+        """
+
+        :param data: For details, refer to src/element/points
+        :return:
+            model: a PyMC Model
+        """
 
         with pymc.Model() as model:
 
@@ -34,6 +48,6 @@ class Algorithm:
 
             # Define likelihood
             likelihood = pymc.Normal(name='y', mu=regression, sigma=sigma, observed=data.dependent)
-            self.__logger.info(likelihood)
+            self.__logger.info('Likelihood: %s', likelihood)
 
         return model

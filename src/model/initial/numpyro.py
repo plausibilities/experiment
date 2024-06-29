@@ -1,12 +1,10 @@
 """
 numpyro.py
 """
-import os
 
 import arviz
-import pymc
-import pymc.sampling_jax
 import jax
+import pymc
 
 import config
 
@@ -19,7 +17,7 @@ class NumPyro:
         """
 
         # Use a GPU (Graphics Processing Unit); the NVIDIA unit.
-        os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+        # os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
         # Configurations
         configurations = config.Config()
@@ -39,9 +37,8 @@ class NumPyro:
             chains = 4
 
         with model:
-            # Inference
-            trace = pymc.sampling_jax.sample_numpyro_nuts(
-                draws=2000, tune=1000, chains=chains, target_accept=0.9,
-                random_seed=self.random_seed, chain_method=method)
+            trace = pymc.sample(draws=2000, tune=1000, chains=chains, cores=4, target_accept=0.9,
+                                random_seed=self.random_seed, nuts_sampler='numpyro',
+                                nuts_sampler_kwargs={'chain_method': method, 'postprocessing_backend': 'gpu'})
 
         return trace

@@ -1,9 +1,0 @@
-pymc
-numpyro
-blackjax
-arviz
-pytest
-coverage
-pytest-cov
-pylint
-flake8
