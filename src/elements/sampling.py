@@ -1,6 +1,8 @@
+"""Module sampling.py"""
 import typing
 
 import config
+
 
 class Sampling(typing.NamedTuple):
     """
@@ -16,8 +18,8 @@ class Sampling(typing.NamedTuple):
 
     chains : int
         If the _chain method_ of a GPU (graphics processing unit) computation setting is
-        * Parallel, $\le$ # of graphics processing units
-        * Vectorized, try $\ge 4$.  Samples will be drawn in parallel within GPU.
+        * Parallel: ≤ # of graphics processing units.
+        * Vectorized: ≥ 4.  Samples will be drawn in parallel within GPU.
 
     cores : int
         The "... number of chains to run in parallel".  Logically
