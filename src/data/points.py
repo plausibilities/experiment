@@ -16,7 +16,7 @@ class Points:
         """
 
         # Parameters for data generation
-        self.parameters = pr.Parameters
+        self.__parameters = pr.Parameters()
 
     def __model(self) -> (np.ndarray, np.ndarray):
         """
@@ -26,11 +26,10 @@ class Points:
             ordinates: The corresponding y values abscissae.
         """
 
-        abscissae = np.linspace(start=0, stop=2, num=self.parameters.n_instances)
+        abscissae = np.linspace(start=0, stop=2, num=self.__parameters.n_instances)
         abscissae = np.expand_dims(abscissae, axis=1)
 
-        ordinates = (self.parameters.gradient * abscissae) + self.parameters.intercept
-        ordinates = np.expand_dims(ordinates, axis=1)
+        ordinates = (self.__parameters.gradient * abscissae) + self.__parameters.intercept
 
         return abscissae, ordinates
 
@@ -46,12 +45,12 @@ class Points:
 
         # Noise
         noise = np.random.normal(
-            loc=self.parameters.noise_location, scale=self.parameters.noise_scale, size=self.parameters.n_excerpt)
+            loc=self.__parameters.noise_location, scale=self.__parameters.noise_scale, size=self.__parameters.n_excerpt)
         noise = np.expand_dims(noise, axis=1)
 
         # The Measures
-        independent = abscissae[:self.parameters.n_excerpt]
-        dependent = ordinates[:self.parameters.n_excerpt] + noise[:self.parameters.n_excerpt]
+        independent = abscissae[:self.__parameters.n_excerpt]
+        dependent = ordinates[:self.__parameters.n_excerpt] + noise # [:self.__parameters.n_excerpt]
 
         return independent, dependent
 
