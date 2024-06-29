@@ -38,8 +38,8 @@ class NumPyro:
             chains = 4
 
         with model:
-            trace = pymc.sample(draws=2000, tune=1000, chains=chains, target_accept=0.9,
+            trace = pymc.sample(draws=2000, tune=1000, chains=chains, cores=4, target_accept=0.9,
                                 random_seed=self.random_seed, nuts_sampler='numpyro',
-                                nuts_sampler_kwargs={'chain_method': method})
+                                nuts_sampler_kwargs={'chain_method': method, 'postprocessing_backend': 'gpu'})
 
         return trace
