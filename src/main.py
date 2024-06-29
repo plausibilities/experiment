@@ -23,19 +23,13 @@ def main():
     
     # Sample data
     data: pi.Points  = src.data.points.Points().exc()
-    logger.info(data.dependent.shape)
-    logger.info(data.independent.shape)
     
     # The suggested model
     model: pymc.Model = src.model.algorithm.Algorithm().exc(data=data)
 
     # Inference
-    inference = src.model.initial.inference.Inference(model=model)
-    estimates:arviz.InferenceData = inference.exc(sampler='numpyro', method='vectorized')
-    logger.info(estimates.__dict__)
-
     sampling = smp.Sampling(chains=8)
-    interface = src.model.interface.Interface(sampling=sampling)
+    interface = src.model.inference.Inference(sampling=sampling)
     estimates: arviz.InferenceData = interface.exc(model=model, nuts_sampler='numpyro', method='vectorized')
     logger.info(estimates.__dict__)
 
@@ -68,7 +62,6 @@ if __name__ == '__main__':
     import src.elements.sampling as smp
     import src.functions.cache
     import src.model.algorithm
-    import src.model.initial.inference
-    import src.model.interface
+    import src.model.inference
 
     main()
