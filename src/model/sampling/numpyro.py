@@ -18,7 +18,7 @@ class NumPyro:
         """
 
         # Use a GPU (Graphics Processing Unit); the NVIDIA unit.
-        os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+        # os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
         # Configurations
         configurations = config.Config()
