@@ -30,7 +30,8 @@ def main():
     # Inference
     sampling = smp.Sampling(chains=8)
     interface = src.model.inference.Inference(sampling=sampling)
-    estimates: arviz.InferenceData = interface.exc(model=model, nuts_sampler='numpyro', method='vectorized')
+    estimates: arviz.InferenceData = interface.exc(
+        model=model, nuts_sampler='numpyro', chain_method='vectorized')
     logger.info(estimates.__dict__)
 
 
