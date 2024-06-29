@@ -39,8 +39,12 @@ class Inference:
         :return:
         """
 
-        return {
-            'simple': src.model.sampling.simple.Simple().exc(model=self.__model),
-            'numpyro': src.model.sampling.numpyro.NumPyro().exc(model=self.__model, method=method),
-            'blackjax': src.model.sampling.blackjax.BlackJAX().exc(model=self.__model, method=method)
-        }.get(sampler, LookupError(f'{sampler} is not a known sampler.'))
+        match sampler:
+            case 'simple':
+                return src.model.sampling.simple.Simple().exc(model=self.__model)
+            case 'numpyro':
+                return src.model.sampling.numpyro.NumPyro().exc(model=self.__model, method=method)
+            case 'blackjax':
+                return src.model.sampling.blackjax.BlackJAX().exc(model=self.__model, method=method)
+            case _:
+                raise f'{sampler} is not a known sampler.'
