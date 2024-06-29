@@ -46,4 +46,3 @@ class Cache:
         for pattern in self.__patterns:
 
             self.__delete(pattern=pattern)
-
