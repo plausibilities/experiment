@@ -65,10 +65,10 @@ class Inference:
         """
 
         if chain_method not in self.__graphics_chain_methods:
-            raise Exception('Unknown graphics chain method; parallel or vectorized only.')
+            raise LookupError('Unknown graphics chain method; parallel or vectorized only.')
 
         if nuts_sampler not in self.__nuts_samplers:
-            raise Exception('Unknown graphics chain method; parallel or vectorized only.')
+            raise LookupError('Unknown NUTS option; blackjax, numpyro, or pymc only.')
 
         return True
 
